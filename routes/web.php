@@ -8,6 +8,13 @@ use App\http\Controllers\ContactController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', function (){
+    echo "Your are not here";
+});
+Route::get('/about', function (){
+    return view('about');
+})->middleware('check');
+
 // this was used in laravel 7
 // Route::get('/about',function (){
 //     return view('about');
