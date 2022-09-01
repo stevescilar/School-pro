@@ -21,4 +21,4 @@ Route::get('/about', function (){
 // });
 
 // laravel 8 -> format
-Route::get('/contact',[ContactController::class, 'index']);
+Route::get('/contact-asdf-asdfasd',[ContactController::class, 'index'])->name('con');
