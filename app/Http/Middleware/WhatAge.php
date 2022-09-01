@@ -17,7 +17,7 @@ class WhatAge
     public function handle(Request $request, Closure $next)
     {
         if($request->age <= 20) {
-            return redirect ('home');
+            return redirect ('/');
         }
         return $next($request);
     }
