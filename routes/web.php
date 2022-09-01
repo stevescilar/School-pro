@@ -22,3 +22,12 @@ Route::get('/about', function (){
 
 // laravel 8 -> format
 Route::get('/contact-asdf-asdfasd',[ContactController::class, 'index'])->name('con');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
