@@ -13,7 +13,7 @@ Route::get('/home', function (){
 });
 Route::get('/about', function (){
     return view('about');
-})->middleware('check');
+})->middleware('age');
 
 // this was used in laravel 7
 // Route::get('/about',function (){
