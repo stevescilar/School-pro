@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route; 
 // very key
 use App\http\Controllers\ContactController; 
+use App\http\Controllers\CategoryController; 
+
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +26,10 @@ Route::get('/about', function (){
 
 // laravel 8 -> format
 Route::get('/contact-asdf-asdfasd',[ContactController::class, 'index'])->name('con');
+
+// category Route,
+Route::get('/category/all',[CategoryController::class, 'AllCat'])->name('all.category');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
