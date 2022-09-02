@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // very key
 use App\http\Controllers\ContactController; 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 
 Route::get('/', function () {
@@ -32,8 +33,8 @@ Route::middleware([
 
         // getting data from database
 
-        $users = User::all();
-
+        //$users = User::all();
+        $users = DB::table('users')->get(); //using query builder 
         return view('dashboard',compact('users'));
     })->name('dashboard');
 });

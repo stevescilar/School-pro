@@ -2,7 +2,10 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         
-            Hi..  <b> {{ Auth::user()->name }}</b>
+            Hi..  <b style="font-style: italic; color:DodgerBlue;">  {{ Auth::user()->name }}</b>
+            <b style="float:right;"> Total Users  <strong class="badge badge-info">{{ count($users) }} </strong>
+            
+            </b>
         </h2>
     </x-slot>
 
@@ -25,7 +28,7 @@
       <th scope="row">{{ $i++ }}</th>
       <td>{{ $user->name }}</td>
       <td>{{ $user->email }}</td>
-      <td>{{ $user->created_at->diffForHumans() }}</td>
+      <td>{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</td>
     </tr>
         @endforeach
 
