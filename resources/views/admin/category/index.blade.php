@@ -47,7 +47,7 @@
                     Add Category
                 </div>
                 <div class="card-body">
-                <form action="{{ route('store.ctegory') }}" method="POST">
+                <form action="{{ route('store.category') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Category Name</label>
