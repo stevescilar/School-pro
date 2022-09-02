@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route; 
 // very key
 use App\http\Controllers\ContactController; 
+use App\Models\User;
 
 
 Route::get('/', function () {
@@ -28,6 +29,11 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+
+        // getting data from database
+
+        $users = User::all();
+
+        return view('dashboard',compact('users'));
     })->name('dashboard');
 });
