@@ -31,6 +31,13 @@ class CategoryController extends Controller
 
         ]);
 
+        // $category = new Category;
+        // $category -> category_name = $request->category_name;
+        // $category -> user_id = Auth::user()->id;
+        // $category->save();
+
+        return Redirect()->back()->with('success','Category Added Successfully');
+
 
     }
 }
