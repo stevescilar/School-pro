@@ -30,6 +30,9 @@ Route::get('/contact-asdf-asdfasd',[ContactController::class, 'index'])->name('c
 // category Route,
 Route::get('/category/all',[CategoryController::class, 'AllCat'])->name('all.category');
 
+// Add Category
+Route::post('/category/add',[CategoryController::class, 'AddCat'])->name('store.category');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
