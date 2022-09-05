@@ -18,7 +18,8 @@ class CategoryController extends Controller
         // $categories = Category::all(); 
 
         //fetch data from the latest additions
-        $categories = Category::latest()->get();
+        $categories = Category::latest()->paginate(5);
+        
 
         // fetch data using Query Builder
         // $categories = DB::table('categories')->latest()->get(); //- remember to use carbon while displaying created_at

@@ -30,18 +30,19 @@
                 <tr>
                 <th scope="col">SL No</th>
                 <th scope="col">Category Name</th>
-                <th scope="col">User</th>
+                <th scope="col">Added By</th>
                 <th scope="col">Created At</th>
                 </tr>
             </thead>
             <tbody>
-                @php($i = 1)
+                <!-- @php($i = 1) -->
                 @foreach($categories as $category)
                 <tr>
-                <th scope="row">{{ $i++}}</th>
+
+                <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
                 
                 <td>{{ $category->category_name}}</td>
-                <td>{{ $category->user_id}}</td>
+                <td>{{ $category->user->name}}</td>
                 
                 <td>
                     @if($category->created_at == NULL)
@@ -54,6 +55,8 @@
             </tbody>
             
         </table>
+
+        {{ $categories->links() }}
     </div>
 </div>
 
