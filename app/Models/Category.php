@@ -14,7 +14,7 @@ class Category extends Model
         'category_name',
     ];
 
-    // onetoone relationship
+    // one-to-one relationship
     public function user(){
         return $this->hasOne(User::class, 'id','user_id');
     }
