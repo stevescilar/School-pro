@@ -11,7 +11,19 @@ use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     public function AllCat (){
-        return view('admin.category.index');
+
+        // Fetch data using  eloquent ORM
+
+        //get all data
+        // $categories = Category::all(); 
+
+        //fetch data from the latest additions
+        $categories = Category::latest()->get();
+
+        // fetch data using Query Builder
+        // $categories = DB::table('categories')->latest()->get(); //- remember to use carbon while displaying created_at
+
+        return view('admin.category.index', compact('categories'));
     }
 
 
