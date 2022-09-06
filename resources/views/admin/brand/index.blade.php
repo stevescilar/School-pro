@@ -75,7 +75,7 @@
                     Add Brand
                 </div>
                 <div class="card-body">
-                <form action="{{ route('store.category') }}" method="POST">
+                <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Brand Name</label>

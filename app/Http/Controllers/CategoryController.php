@@ -36,6 +36,7 @@ class CategoryController extends Controller
         ],
         [
             'category_name.required' => 'Please Input Category Name!',
+            'category_name.max' => 'Category Less Than 255 x-cters',
         ]); 
 
         // Insert data using Eloquent ORM 
