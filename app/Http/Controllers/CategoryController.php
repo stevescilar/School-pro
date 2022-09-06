@@ -19,12 +19,13 @@ class CategoryController extends Controller
 
         //fetch data from the latest additions
         $categories = Category::latest()->paginate(5);
+        $trashCat = Category::onlyTrashed()->latest()->paginate(3);
         
 
         // fetch data using Query Builder
         // $categories = DB::table('categories')->latest()->get(); //- remember to use carbon while displaying created_at
 
-        return view('admin.category.index', compact('categories'));
+        return view('admin.category.index', compact('categories','trashCat'));
     }
 
 
@@ -60,6 +61,40 @@ class CategoryController extends Controller
 
         return Redirect()->back()->with('success','Category Added Successfully');
 
+
+    }
+
+
+// edit Category
+    public function Edit($id){
+        $categories = Category::find($id);
+        return view('admin.category.edit',compact('categories'));
+    }
+    // update Category
+    public function Update(Request $request , $id){
+        $update = Category::find($id)->update([
+            'category_name' => $request->category_name,
+            'user_id' => Auth::user()->id
+
+        ]);
+        return Redirect()->route('all.category')->with('success','Category Updated Successfully');
+    }
+
+
+    public function SoftDelete($id){
+        
+        $delete = Category::find($id)->delete();
+        return Redirect()->back()->with('success','Category Deleted Successfully');
+    }
+
+    public function Restore($id){
+        $delete =  Category::withTrashed()->find($id)->restore();
+        return Redirect()->back()->with('success','Category Restored Successfully');
+    }
+
+    public function Pdelete($id){
+        $delete =  Category::onlyTrashed()->find($id)->forceDelete();
+        return Redirect()->back()->with('success','Category Permanently Deleted');
 
     }
 }

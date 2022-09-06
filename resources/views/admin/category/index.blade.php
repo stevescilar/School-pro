@@ -32,6 +32,8 @@
                 <th scope="col">Category Name</th>
                 <th scope="col">Added By</th>
                 <th scope="col">Created At</th>
+                <th scope="col">Action</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -48,8 +50,15 @@
                     @if($category->created_at == NULL)
                     <span class="text-danger"> No Data Available </span>
                     @else
-                        {{ $category->created_at->diffForHumans() }}</td>
+                        {{ $category->created_at->diffForHumans() }}
                     @endif
+                </td>
+                <td>
+                    <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Edit</a>
+                    <a href="{{  url('softdelete/category/'.$category->id )}}" class="btn btn-danger">Delete</a>
+
+                </td>
+
                 </tr>
                 @endforeach
             </tbody>
@@ -85,5 +94,76 @@
 
             </div>
         </div>
+
+
+<!-- Trashed Area -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                    <!-- hci-->
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ session('success')}}</strong> 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+                        <div class="card-header">
+                            Trash List
+                        </div> 
+                 
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">SL No</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Added By</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- @php($i = 1) -->
+                @foreach($trashCat as $category)
+                <tr>
+
+                <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
+                
+                <td>{{ $category->category_name}}</td>
+                <td>{{ $category->user->name}}</td>
+                
+                <td>
+                    @if($category->created_at == NULL)
+                    <span class="text-danger"> No Data Available </span>
+                    @else
+                        {{ $category->created_at->diffForHumans() }}
+                    @endif
+                </td>
+                <td>
+                    <a href="{{ url('category/restore/'.$category->id) }}" class="btn btn-success">Restore</a>
+                    <a href="{{ url('pdelete/category/'.$category->id) }}" class="btn btn-danger">Empty Trash</a>
+
+                </td>
+
+                </tr>
+                @endforeach
+            </tbody>
+            
+        </table>
+
+        {{ $trashCat->links() }}
+    </div>
+</div>
+
+        <div class="col-md-4">
+           
+        </div>
+
+            </div>
+        </div>
+    <!-- end trash part  -->
+
     </div>
 </x-app-layout>
