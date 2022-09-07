@@ -34,7 +34,7 @@ Route::get('/dashboard', function () {
 // End of Email Verification routes 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('/home', function (){
     echo "Your are not here";
