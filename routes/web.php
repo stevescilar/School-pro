@@ -94,5 +94,9 @@ Route::middleware([
     })->name('dashboard');
 });
 
+// logout Route
+Route::get('/user/logout',[BrandController::class, 'Logout'])->name('user.logout');
+
+
 
 // Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
