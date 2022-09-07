@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\ContactController; 
 use App\http\Controllers\CategoryController; 
 use App\http\Controllers\BrandController;
+use App\http\Controllers\HomeController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -34,7 +35,8 @@ Route::get('/dashboard', function () {
 // End of Email Verification routes 
 
 Route::get('/', function () {
-    return view('home');
+    $brands = DB::table('brands')->get(); 
+    return view('home',compact('brands'));
 });
 Route::get('/home', function (){
     echo "Your are not here";
@@ -73,6 +75,12 @@ Route::get('/brand/delete/{id}',[BrandController::class, 'Delete']);
 // multi-images Route
 Route::get('/multi/image',[BrandController::class, 'MultiPic'])->name('multi.image');
 Route::post('/multi/image',[BrandController::class, 'StoreImage'])->name('store.image');
+
+// Admin All Route
+Route::get('/home/slider',[HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider',[HomeController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider',[HomeController::class, 'StoreSlider'])->name('store.slider');
+
 
 
 
