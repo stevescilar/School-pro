@@ -89,8 +89,8 @@ Route::middleware([
         // getting data from database
 
         //$users = User::all();
-        $users = DB::table('users')->get(); //using query builder 
-        return view('dashboard',compact('users'));
+        // $users = DB::table('users')->get(); //using query builder 
+        return view('admin.index');
     })->name('dashboard');
 });
 
