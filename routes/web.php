@@ -5,6 +5,7 @@ use App\http\Controllers\ContactController;
 use App\http\Controllers\CategoryController; 
 use App\http\Controllers\BrandController;
 use App\http\Controllers\HomeController;
+use App\http\Controllers\AboutController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -85,7 +86,9 @@ Route::post('/slider/update/{id}',[HomeController::class, 'Update']);
 Route::get('/slider/delete/{id}',[HomeController::class, 'Delete']);
 
 // About Us section
-Route::get('/home/about',[HomeController::class, 'HomeAbout'])->name('home.about');
+Route::get('/home/about',[AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/add/about',[AboutController::class, 'AddAbout'])->name('add.homeabout');
+
 
 Route::middleware([
     'auth:sanctum',
