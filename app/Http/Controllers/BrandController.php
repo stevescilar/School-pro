@@ -96,14 +96,14 @@ class BrandController extends Controller
             ]);
 
 
-            return Redirect()->back()->with('success','Brand Updated Successfully');
+            return Redirect()->route('all.brand')->with('success','Brand Updated Successfully');
         }else{
             Brand::find($id)->update([
                 'brand_name' => $request->brand_name,
                 'created_at' => Carbon::now()
             ]);
 
-            return Redirect()->back()->with('success','Brand Updated Successfully');
+            return Redirect()->route('all.brand')->with('success','Brand Updated Successfully');
         }
         
     }

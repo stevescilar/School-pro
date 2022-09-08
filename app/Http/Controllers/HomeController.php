@@ -54,7 +54,7 @@ class HomeController extends Controller
 
         if($slider_image){
             $name_gen = hexdec(uniqid());
-            $img_ext = strtolower($brand_image->getClientOriginalExtension());
+            $img_ext = strtolower($slider_image->getClientOriginalExtension());
             $img_name = $name_gen. '.' .$img_ext;
             $up_location = 'image/slider/';
             $last_img = $up_location.$img_name;
@@ -62,7 +62,7 @@ class HomeController extends Controller
 
             unlink($old_image);
             Slider::find($id)->update([
-                'title' => $request->brand_name,
+                'title' => $request->title,
                 'description' => $request->description,
                 'image' => $last_img,
                 'created_at' => Carbon::now()
@@ -72,12 +72,22 @@ class HomeController extends Controller
             return Redirect()->route('home.slider')->with('success','Slider Updated Successfully');
         }else{
             Slider::find($id)->update([
-                'title' => $request->brand_name,
+                'title' => $request->title,
                 'description' => $request->description,
                 'created_at' => Carbon::now()
             ]);
 
             return Redirect()->route('home.slider')->with('success','Slider Updated Successfully');
         }
+    }
+
+    public function Delete($id){
+        $image = Slider::find($id);
+        $old_image = $image->image;
+        unlink($old_image);
+
+        Slider::find($id)->delete();
+        return Redirect()->back()->with('success','Slider deleted successfuly');
+
     }
 }

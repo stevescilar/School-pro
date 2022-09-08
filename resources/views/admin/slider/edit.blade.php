@@ -25,7 +25,7 @@
                     <input type="hidden" name="old_image" value="{{ $sliders->image }}">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Update Slider Title</label>
-                        <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $sliders->title}}">
+                        <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $sliders->title }}">
                             @error('title')
                                 <span class="text-danger">{{ $message  }}</span>
                             @enderror
