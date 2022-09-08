@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeAbout;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use illuminate\Support\Carbon;
@@ -90,4 +91,5 @@ class HomeController extends Controller
         return Redirect()->back()->with('success','Slider deleted successfuly');
 
     }
+   
 }

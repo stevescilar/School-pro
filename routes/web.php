@@ -84,8 +84,8 @@ Route::get('/slider/edit/{id}',[HomeController::class, 'Edit']);
 Route::post('/slider/update/{id}',[HomeController::class, 'Update']);
 Route::get('/slider/delete/{id}',[HomeController::class, 'Delete']);
 
-
-
+// About Us section
+Route::get('/home/about',[HomeController::class, 'HomeAbout'])->name('home.about');
 
 Route::middleware([
     'auth:sanctum',
