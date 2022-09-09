@@ -26,7 +26,7 @@
                 <tr>
                 <th scope="col"  width="5%">SL No</th>
                 <th scope="col"  width="15%"> About Title</th>
-                <th scope="col"  width="25%">Short Description</th>
+                <th scope="col"  width="25%">Brief</th>
                 <th scope="col"  width="15%">Long Description</th>
                 <th scope="col"  width="15%">Action</th>
 
