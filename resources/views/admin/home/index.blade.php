@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
             <div class="col-md-12 bg-light text-right">
-                <a href=""><button type="button" class="btn btn-warning">About Us-Content</button></a>
+                <a href=""><button type="button" class="btn btn-warning">About Us</button></a>
             </div> <br/> <br/> <br/>
                 <div class="col-md-12">
                     <div class="card">
