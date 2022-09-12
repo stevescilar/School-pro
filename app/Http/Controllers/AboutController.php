@@ -39,7 +39,7 @@ class AboutController extends Controller
     }
 
     public function Update(Request  $request, $id){
-        HomeAbout::find($id)->update([
+        $update = HomeAbout::find($id)->update([
             'title' => $request->title,
             'short_des' => $request->short_des,
             'long_des' => $request->long_des,

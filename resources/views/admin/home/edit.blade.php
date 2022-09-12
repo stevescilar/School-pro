@@ -30,18 +30,15 @@
                             @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Update Short Description</label>
-                        <input type="text" name="short_des" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $abouts->short_des }}">
-                            @error('short_des')
-                                <span class="text-danger">{{ $message  }}</span>
-                            @enderror
-                    </div>
+                        <label for="exampleFormControlTextarea1" class="form-label">Update Short Description</label>
+                        <textarea type="text" name="short_des" class="form-control" id="exampleFormControlTextarea1" rows="3">
+                            {{ $abouts->short_des }}
+                        </textarea>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Update Long Description</label>
-                        <input type="text" name="long_des" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $abouts->long_des }}">
-                            @error('long_des')
-                                <span class="text-danger">{{ $message  }}</span>
-                            @enderror
+                        <label for="exampleFormControlTextarea1">Update Long Description</label>
+                        <textarea type="text" name="long_des" class="form-control" id="exampleFormControlTextarea1" rows="9">
+                            {{ $abouts->long_des }}
+                        </textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Update Section</button>
                 </form>
