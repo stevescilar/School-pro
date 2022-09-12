@@ -6,6 +6,8 @@ use App\http\Controllers\CategoryController;
 use App\http\Controllers\BrandController;
 use App\http\Controllers\HomeController;
 use App\http\Controllers\AboutController;
+use App\http\Controllers\ServiceController;
+
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -95,6 +97,12 @@ Route::post('/store/about',[AboutController::class, 'StoreAbout'])->name('store.
 Route::get('/about/edit/{id}',[AboutController::class, 'Edit']);
 Route::post('/about/update/{id}',[AboutController::class, 'Update']);
 Route::get('/about/delete/{id}',[AboutController::class, 'Delete']);
+
+
+// services routes
+Route::get('/home/services',[ServiceController::class, 'HomeService'])->name('home.service');
+
+
 
 Route::middleware([
     'auth:sanctum',
