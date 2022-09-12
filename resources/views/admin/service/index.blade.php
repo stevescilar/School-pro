@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 <!-- @php($i = 1) -->
-                @foreach($services as $service)
+               @foreach($services as $service )
                 <tr>
 
                 <th scope="row">{{ $services->firstItem()+$loop->index }}</th>
@@ -71,7 +71,7 @@
                     Add New Service
                 </div>
                 <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('add.service')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Service Title</label>

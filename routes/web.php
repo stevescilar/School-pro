@@ -41,8 +41,10 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     $brands = DB::table('brands')->get(); 
     $abouts = DB::table('home_abouts')->first(); 
+    $services = DB::table('services')->get(); 
 
-    return view('home',compact('brands','abouts'));
+
+    return view('home',compact('brands','abouts','services'));
 });
 Route::get('/home', function (){
     echo "Your are not here";
@@ -101,6 +103,7 @@ Route::get('/about/delete/{id}',[AboutController::class, 'Delete']);
 
 // services routes
 Route::get('/home/services',[ServiceController::class, 'HomeService'])->name('home.service');
+Route::post('/add/services',[ServiceController::class, 'AddService'])->name('add.service');
 
 
 

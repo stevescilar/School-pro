@@ -32,17 +32,24 @@
           <h2>Services</strong></h2>
           <p>Laborum repudiandae omnis voluptatum consequatur mollitia ea est voluptas ut</p>
         </div>
-
+        
         <div class="row">
-          <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+          
+            @foreach($services as $service)
+            <div class="card border-info mb-3" style="width: 12rem;">
+              <img src="{{ $service->image }}" class="card-img-top" >
+              <div class="card-body">
+                <h5 class="card-title">{{$service->title}}</h5>
+                <p class="card-text text-primary">{{$service->description}}</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+              </div>
             </div>
-          </div>
-
+          
+            &nbsp;
+            &nbsp;
+            &nbsp;
+              @endforeach
+       
         </div>
 
       </div>
