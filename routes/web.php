@@ -35,9 +35,12 @@ Route::get('/dashboard', function () {
 
 // End of Email Verification routes 
 
+// home routes
 Route::get('/', function () {
     $brands = DB::table('brands')->get(); 
-    return view('home',compact('brands'));
+    $abouts = DB::table('home_abouts')->first(); 
+
+    return view('home',compact('brands','abouts'));
 });
 Route::get('/home', function (){
     echo "Your are not here";
