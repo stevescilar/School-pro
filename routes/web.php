@@ -87,8 +87,11 @@ Route::get('/slider/delete/{id}',[HomeController::class, 'Delete']);
 
 // About Us section
 Route::get('/home/about',[AboutController::class, 'HomeAbout'])->name('home.about');
-Route::get('/add/about',[AboutController::class, 'AddAbout'])->name('add.homeabout');
-
+Route::get('/add/about',[AboutController::class, 'AddAbout'])->name('add.about');
+Route::post('/store/about',[AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/edit/{id}',[AboutController::class, 'Edit']);
+Route::post('/about/update/{id}',[AboutController::class, 'Update']);
+Route::get('/about/delete/{id}',[AboutController::class, 'Delete']);
 
 Route::middleware([
     'auth:sanctum',
