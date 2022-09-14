@@ -46,7 +46,7 @@
                     @if($service->created_at == NULL)
                     <span class="text-danger"> No Data Available </span>
                     @else
-                        {{ $service->created_at->diffForHumans() }}
+                        {{ $service->created_at->diffForHumans()}}
                     @endif
                 </td>
                 <td>

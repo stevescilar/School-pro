@@ -30,27 +30,27 @@
 
         <div class="section-title">
           <h2>Services</strong></h2>
-          <p>Laborum repudiandae omnis voluptatum consequatur mollitia ea est voluptas ut</p>
+          <p>We are experts in several areas, below are a few, take a look</p>
         </div>
         
-        <div class="row">
-          
-            @foreach($services as $service)
-            <div class="card border-info mb-3" style="width: 12rem;">
-              <img src="{{ $service->image }}" class="card-img-top" >
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          @foreach($services as $service)
+          <div class="col">
+            <div class="card h-100">
+              <img src="{{ $service->image }}" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title">{{$service->title}}</h5>
-                <p class="card-text text-primary">{{$service->description}}</p>
+                <p class="card-text">{{$service->description}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted"> Updated {{ Carbon\Carbon::parse($service->created_at)->diffForHumans() }}</small> 
                 <a href="#" class="btn btn-primary">Read More</a>
               </div>
             </div>
-          
-            &nbsp;
-            &nbsp;
-            &nbsp;
-              @endforeach
-       
+          </div>
+          @endforeach
         </div>
+
 
       </div>
     </section><!-- End Services Section -->

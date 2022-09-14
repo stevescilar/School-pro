@@ -28,10 +28,9 @@ class ServiceController extends Controller
 
         $service_image  = $request->file('image');
         $name_gen = hexdec(uniqid()).'.'.$service_image->getClientOriginalExtension();
-        Image::make($service_image)->resize(500,500)->save('image/service/'.$name_gen);
+        Image::make($service_image)->resize(250,320)->save('image/service/'.$name_gen);
 
         $last_img = 'image/service/'.$name_gen;
-
 
         Service::insert([
             'title' => $request->title,
@@ -39,7 +38,6 @@ class ServiceController extends Controller
             'image' => $last_img,
             'created_at' => Carbon::now()
         ]);
-
 
         return Redirect()->back()->with('success','Service Added Successfully');
     }
