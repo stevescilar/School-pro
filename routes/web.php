@@ -104,9 +104,9 @@ Route::get('/about/delete/{id}',[AboutController::class, 'Delete']);
 // services routes
 Route::get('/home/services',[ServiceController::class, 'HomeService'])->name('home.service');
 Route::post('/add/services',[ServiceController::class, 'AddService'])->name('add.service');
-Route::get('/about/edit/{id}',[ServiceController::class, 'Edit']);
-Route::post('/about/update/{id}',[ServiceController::class, 'Update']);
-Route::get('/about/delete/{id}',[ServiceController::class, 'Delete']);
+Route::get('/service/edit/{id}',[ServiceController::class, 'Edit']);
+Route::post('/service/update/{id}',[ServiceController::class, 'Update']);
+Route::get('/service/delete/{id}',[ServiceController::class, 'Delete']);
 
 
 

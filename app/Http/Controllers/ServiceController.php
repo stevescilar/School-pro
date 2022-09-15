@@ -41,4 +41,50 @@ class ServiceController extends Controller
 
         return Redirect()->back()->with('success','Service Added Successfully');
     }
+
+    public function Edit($id){
+        $services = Service::find($id);
+        return view('admin.service.edit',compact('services'));
+    }
+    public function Update(Request $request, $id){
+        $old_image = $request->old_image;
+        $service_image  = $request->file('image');
+
+        if($service_image){
+            $name_gen = hexdec(uniqid());
+            $img_ext = strtolower($service_image->getClientOriginalExtension());
+            $img_name = $name_gen. '.' .$img_ext;
+            $up_location = 'image/service/';
+            $last_img = $up_location.$img_name;
+            $service_image->move($up_location,$img_name);
+
+            unlink($old_image);
+            Service::find($id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => $last_img,
+                'created_at' => Carbon::now()
+            ]);
+
+
+            return Redirect()->route('home.service')->with('success','Services Updated Successfully');
+        }else{
+            Service::find($id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'created_at' => Carbon::now()
+            ]);
+
+            return Redirect()->route('home.service')->with('success','Services Updated Successfully');
+        }
+    }
+
+    public function Delete($id){
+        $image = Service::find($id);
+        $old_image = $image->image;
+        unlink($old_image);
+
+        Service::find($id)->delete();
+        return Redirect()->back()->with('success','Service Deleted Successfully');
+    }
 }
