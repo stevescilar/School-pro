@@ -9,6 +9,8 @@ use App\http\Controllers\AboutController;
 use App\http\Controllers\ServiceController;
 
 use App\Models\User;
+use App\Models\Multipic;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -42,9 +44,9 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get(); 
     $abouts = DB::table('home_abouts')->first(); 
     $services = DB::table('services')->get(); 
+    $images = Multipic::all();
 
-
-    return view('home',compact('brands','abouts','services'));
+    return view('home',compact('brands','abouts','services','images'));
 });
 Route::get('/home', function (){
     echo "Your are not here";
