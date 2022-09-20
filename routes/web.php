@@ -110,6 +110,9 @@ Route::get('/service/edit/{id}',[ServiceController::class, 'Edit']);
 Route::post('/service/update/{id}',[ServiceController::class, 'Update']);
 Route::get('/service/delete/{id}',[ServiceController::class, 'Delete']);
 
+// portfolio page
+Route::get('/portfolio',[AboutController::class, 'Portfolio'])->name('portfolio');
+
 
 
 Route::middleware([
