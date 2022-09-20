@@ -33,4 +33,21 @@ class ContactController extends Controller
     return view('admin.contact.edit',compact('contacts'));
    }
 
+   public function Update(Request  $request, $id){
+    $update = Contact::find($id)->update([
+        'address' => $request->address,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'created_at' => Carbon::now()
+
+    ]);
+    return Redirect()->route('admin.contact')->with('success','contact Updated Successfully');
+    }
+
+    public function Delete($id){
+        Contact::find($id)->delete();
+        return Redirect()->back()->with('success','Contact Deleted Successfully');
+
+
+    }
 }

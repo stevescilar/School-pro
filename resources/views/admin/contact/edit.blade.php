@@ -20,7 +20,7 @@
                     Edit Contacts Section
                 </div>
                 <div class="card-body">
-                <form action="" method="POST" >
+                <form action="{{ url('contact/update/'.$contacts->id) }}" method="POST" >
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Update Address</label>
