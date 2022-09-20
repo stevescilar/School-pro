@@ -5,7 +5,7 @@
     <div class="py-12">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="card">
                     <!-- hci-->
                     @if(session('success'))
@@ -21,12 +21,12 @@
             <table class="table">
             <thead>
                 <tr>
-                <th scope="col">SL No</th>
-                <th scope="col">Service Name</th>
-                <th scope="col">Service Description</th>
-                <th scope="col">Service Image</th>
-                <th scope="col">Created At</th>
-                <th scope="col">Action</th>
+                <th scope="col" width="5%">SL No</th>
+                <th scope="col" width="10%"> Name</th>
+                <th scope="col" width="10%">Description</th>
+                <th scope="col" width="10%">Service Image</th>
+                <th scope="col" width="10%">Created At</th>
+                <th scope="col" width="15%">Action</th>
 
                 </tr>
             </thead>
@@ -65,7 +65,7 @@
     </div>
 </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
                 <div class="card-header">
                     Add New Service

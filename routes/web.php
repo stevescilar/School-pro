@@ -113,7 +113,13 @@ Route::get('/service/delete/{id}',[ServiceController::class, 'Delete']);
 // portfolio page
 Route::get('/portfolio',[AboutController::class, 'Portfolio'])->name('portfolio');
 
-
+// admin contact page route
+Route::get('/admin/contact',[ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/add/contact',[ContactController::class, 'AddContact'])->name('add.contact');
+Route::post('/store/contact',[ContactController::class, 'StoreContact'])->name('store.contact');
+Route::get('/contact/edit/{id}',[ContactController::class, 'Edit']);
+Route::post('/contact/update/{id}',[ContactController::class, 'Update']);
+Route::get('/contact/delete/{id}',[ContactController::class, 'Delete']);
 
 Route::middleware([
     'auth:sanctum',
