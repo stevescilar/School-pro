@@ -6,14 +6,14 @@
 
       <div class="col-lg-3 col-md-6 footer-contact">
         <h3>TechIT Enterprises</h3>
-        @foreach($contacts as $con)
+        
         <p>
-        {{ $con->address }}  <br>
+        {{ $contacts->address }}  <br>
 
-          <strong>Phone:</strong> {{ $con->phone }} <br>
-          <strong>Email:</strong> {{ $con->email }}<br>
+          <strong>Phone:</strong> {{ $contacts->phone }} <br>
+          <strong>Email:</strong> {{ $contacts->email }}<br>
         </p>
-        @endforeach
+      
       </div>
 
       <div class="col-lg-2 col-md-6 footer-links">

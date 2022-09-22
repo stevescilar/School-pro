@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\ContactForm;
+
+use App\Models\Service;
 use illuminate\Support\Carbon;  
+use Illuminate\Support\Facades\DB;
 class ContactController extends Controller
 {
    public function AdminContact(){
@@ -51,7 +55,26 @@ class ContactController extends Controller
 
     }
     public function ContactMe(){
+        $contacts =DB::table('contacts')->first();
+        $services = Service::all();
+        return view('pages.contact',compact('contacts','services'));
+    }
 
-        return view('pages.contact');
+    public function ContactForm(Request $request){
+        ContactForm::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'created_at' => Carbon::now()
+        ]);
+        return Redirect()->route('contact')->with('success','Message Sent Successfully');
+    }
+
+    public function AdminMessage(){
+        // get data from contact form
+        $messages = ContactForm::all();
+
+        return view ('admin.contact.message', compact('messages'));
     }
 }

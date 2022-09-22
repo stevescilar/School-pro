@@ -44,7 +44,7 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get(); 
     $abouts = DB::table('home_abouts')->first(); 
     $services = DB::table('services')->get(); 
-    $contacts  = DB::table('contacts')->get();
+    $contacts  = DB::table('contacts')->first();
     $images = Multipic::all();
 
     return view('home',compact('brands','abouts','services','images','contacts'));
@@ -120,11 +120,23 @@ Route::get('/admin/contact',[ContactController::class, 'AdminContact'])->name('a
 Route::get('/add/contact',[ContactController::class, 'AddContact'])->name('add.contact');
 Route::post('/store/contact',[ContactController::class, 'StoreContact'])->name('store.contact');
 Route::get('/contact/edit/{id}',[ContactController::class, 'Edit']);
+Route::get('/admin/message',[ContactController::class, 'AdminMessage'])->name('add.message');
+
 Route::post('/contact/update/{id}',[ContactController::class, 'Update']);
+
+
+// user Contacts route
+Route::get('/contact',function (){
+    $services = DB::table('services')->get(); 
+    $contacts  = DB::table('contacts')->first();
+    
+    return view('contact',compact('services','contacts'));
+});
 Route::get('/contact/delete/{id}',[ContactController::class, 'Delete']);
 
 // user contact form 
 Route::get('/contact',[ContactController::class, 'ContactMe'])->name('contact');
+Route::post('/contact/form',[ContactController::class, 'ContactForm'])->name('contact.form');
 
 Route::middleware([
     'auth:sanctum',
