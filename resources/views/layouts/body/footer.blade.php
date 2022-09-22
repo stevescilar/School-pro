@@ -6,13 +6,14 @@
 
       <div class="col-lg-3 col-md-6 footer-contact">
         <h3>TechIT Enterprises</h3>
+        @foreach($contacts as $con)
         <p>
-          BlueHouse  <br>
-          Nairobi, Mombasa Rd<br>
-          Opp Hilton Garden Inn <br><br>
-          <strong>Phone:</strong> +254 705 549 257<br>
-          <strong>Email:</strong> info@techit.co.ke<br>
+        {{ $con->address }}  <br>
+
+          <strong>Phone:</strong> {{ $con->phone }} <br>
+          <strong>Email:</strong> {{ $con->email }}<br>
         </p>
+        @endforeach
       </div>
 
       <div class="col-lg-2 col-md-6 footer-links">

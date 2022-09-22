@@ -44,10 +44,12 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get(); 
     $abouts = DB::table('home_abouts')->first(); 
     $services = DB::table('services')->get(); 
+    $contacts  = DB::table('contacts')->get();
     $images = Multipic::all();
 
-    return view('home',compact('brands','abouts','services','images'));
+    return view('home',compact('brands','abouts','services','images','contacts'));
 });
+
 Route::get('/home', function (){
     echo "Your are not here";
 });
