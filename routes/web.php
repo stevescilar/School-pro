@@ -123,6 +123,9 @@ Route::get('/contact/edit/{id}',[ContactController::class, 'Edit']);
 Route::post('/contact/update/{id}',[ContactController::class, 'Update']);
 Route::get('/contact/delete/{id}',[ContactController::class, 'Delete']);
 
+// user contact form 
+Route::get('/contact',[ContactController::class, 'ContactMe'])->name('contact');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

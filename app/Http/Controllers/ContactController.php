@@ -50,4 +50,8 @@ class ContactController extends Controller
 
 
     }
+    public function ContactMe(){
+
+        return view('pages.contact');
+    }
 }
