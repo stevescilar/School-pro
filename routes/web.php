@@ -50,9 +50,9 @@ Route::get('/', function () {
     return view('home',compact('brands','abouts','services','images','contacts'));
 });
 
-Route::get('/home', function (){
-    echo "Your are not here";
-});
+// Route::get('/home', function (){
+//     return view('home');
+// });
 Route::get('/about', function (){
     return view('about');
 })->middleware('age');

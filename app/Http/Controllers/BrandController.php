@@ -56,8 +56,11 @@ class BrandController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-
-        return Redirect()->back()->with('success','Brand Inserted Successfully');
+        $notification = array(
+            'message' => 'Brand Inserted Successfully',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($notification);
      }
 
 
@@ -94,16 +97,23 @@ class BrandController extends Controller
                 'brand_image' => $last_img,
                 'created_at' => Carbon::now()
             ]);
-
-
-            return Redirect()->route('all.brand')->with('success','Brand Updated Successfully');
+           
+            $notification = array(
+                'message' => 'Brand Updated Successfully',
+                'alert-type' => 'info'
+            );
+          
+            return Redirect()->route('all.brand')->with($notification);
         }else{
             Brand::find($id)->update([
                 'brand_name' => $request->brand_name,
                 'created_at' => Carbon::now()
             ]);
-
-            return Redirect()->route('all.brand')->with('success','Brand Updated Successfully');
+            $notification = array(
+                'message' => 'Brand Updated Successfully',
+                'alert-type' => 'info'
+            );
+            return Redirect()->route('all.brand')->with($notification);
         }
         
     }
@@ -114,7 +124,11 @@ class BrandController extends Controller
         unlink($old_image);
 
         Brand::find($id)->delete();
-        return Redirect()->back()->with('success','Brand Deleted Successfully');
+        $notification = array(
+            'message' => 'Brand Deleted Successfully',
+            'alert-type' => 'warning'
+        );
+        return Redirect()->back()->with($notification);
     }
 
     // Multi-Image 
